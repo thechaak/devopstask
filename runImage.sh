@@ -1,10 +1,13 @@
 #!/bin/bash
-createImage="./createImage.sh"
 alias kubectl="minikube kubectl --"
 image="helloworld"
 version=$(date +"%D-%T")
 imagename="${image}:${version}"
 now="$(date +%s)"
+housekeeping()
+{
+docker rmi $(cat delete)
+}
 if [ -e sampledata.json ]
 then
 	echo "changing the build time in sampledata.json"
@@ -20,3 +23,4 @@ kubectl expose deployment ${image} --type=NodePort --port=80
 ## To run the same image through docker ##
 ##	docker run -it -d -p 80:80 --name helloworld ${imagename}
 echo "..Love from DevOps.."
+housekeeping
