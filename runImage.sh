@@ -1,3 +1,4 @@
+createImage="./createImage.sh"
 alias kubectl="minikube kubectl --"
 image="helloworld"
 version="v1"
@@ -8,6 +9,7 @@ then
 	echo "changing the build time in sampledata.json"
 	deat="$(awk 'FNR == 4 { print $2 }' sampledata.json)"
 	sed -i "s_${deat}_${now}_g " sampledata.json
+	bash "$createImage"
 else
 	echo "File not found! Please checkin sampledata.json"
 fi
