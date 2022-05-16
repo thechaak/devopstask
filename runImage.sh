@@ -1,3 +1,4 @@
+#!/bin/bash
 createImage="./createImage.sh"
 alias kubectl="minikube kubectl --"
 image="helloworld"
