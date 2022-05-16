@@ -2,7 +2,7 @@
 createImage="./createImage.sh"
 alias kubectl="minikube kubectl --"
 image="helloworld"
-version="$(date +"%D-%T")"
+version=$(date +"%D-%T")
 imagename="${image}:${version}"
 now="$(date +%s)"
 if [ -e sampledata.json ]
