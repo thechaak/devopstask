@@ -1,3 +1,4 @@
+#!/bin/bash
 image="helloworld"
 version="v1"
 imagename="${image}:${version}"
@@ -17,4 +18,3 @@ if [[ "$(docker image inspect ${imagename} --format='imageYes' 2> /dev/null)" ==
 else
 docker build -t ${imagename} .
 fi
-
