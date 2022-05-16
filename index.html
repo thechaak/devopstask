@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Devops Task</title>
+</head>
+<body>
+    <div id="myData"></div>
+    <script>
+        fetch('sampledata.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            {
+                var div = document.createElement("div");
+                div.innerHTML = 'hello: ' + data.hello;
+                mainContainer.appendChild(div);
+            }
+            {
+                var div = document.createElement("div");
+                div.innerHTML = 'built_at: ' + data.built_at;
+                mainContainer.appendChild(div);
+            }
+            {
+                var div = document.createElement("div");
+                div.innerHTML = 'deployed_at: ' + data.deployed_at;
+                mainContainer.appendChild(div);
+            }
+
+
+        }
+    </script>
+</body>
+</html>
