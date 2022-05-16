@@ -1,6 +1,6 @@
 #!/bin/bash
 image="helloworld"
-version="v1"
+version=$(date +"%m%d%Y-%H%M")
 imagename="${image}:${version}"
 now="$(date +%s),"
 if [ -e sampledata.json ]
